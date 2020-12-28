@@ -6,21 +6,19 @@ import 'package:flutter_get_law/pages/login/login_page/register_page.dart';
 import 'package:get/get.dart';
 
 ///顶部logo
-Widget buildLogo(BuildContext context) {
+Widget buildLogo() {
   return Padding(
-//    padding:
-//        EdgeInsets.only(top: setRealHeight(160)),
     padding: EdgeInsets.only(),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        ClipOval(
-          child: Image.asset(
-            "images/logo_512.png",
-            width: setWidth(150),
-            height: setWidth(150),
-            fit: BoxFit.cover,
-          ),
+        TweenAnimationBuilder(
+          tween: Tween(begin: 0.0, end: 1.0),
+          duration: Duration(seconds: 1),
+          builder: (context, value, child) {
+            return AnimatedOpacity(
+                opacity: value, duration: Duration.zero, child: FlutterLogo(size: setWidth(150)));
+          },
         ),
       ],
     ),

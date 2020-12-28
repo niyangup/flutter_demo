@@ -1,4 +1,5 @@
 import 'package:flutter_get_law/common/values/constants.dart';
+import 'package:flutter_get_law/common/values/values.dart';
 import 'package:flutter_get_law/common/widgets/widgets.dart';
 import 'package:flutter_get_law/pages/login/login_page/login_by_pwd_page.dart';
 import 'package:flutter_get_law/pages/me_item/about_our_page.dart';
@@ -58,7 +59,7 @@ class MeController extends GetxController {
   void handleExitLogin() {
     showMyConfirmDialog(
       content: '确定要退出吗',
-      okCallback: () {
+      okCallback: () async{
         final controller = Get.find<TabsController>();
         controller.resetCurrentIndex();
         Get.offAll(LoginByPwdPage());

@@ -29,7 +29,7 @@ class LoginByPwdPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Spacer(),
-              buildLogo(context),
+              buildLogo(),
               SizedBox(height: setRealHeight(108)),
               LoginTextField(title: "手机号", controller: loginByPwdController.phoneController),
               SizedBox(height: setRealHeight(40)),

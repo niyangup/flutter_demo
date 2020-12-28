@@ -32,7 +32,7 @@ class LoginByPwdController extends GetxController {
       EasyLoading.show(status: Constants.notice);
       await Future.delayed(Duration(seconds: 1));
       if (this.phoneController.text.isPhoneNumber && this.passwordController.text.isNotEmpty) {
-        EasyLoading.showSuccess(Constants.login_success);
+        EasyLoading.dismiss();
         Get.offAll(Tabs());
       } else {
         EasyLoading.showInfo(Constants.login_fail);
