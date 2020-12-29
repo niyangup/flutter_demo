@@ -48,4 +48,7 @@ class Constants {
   static const content_can_not_empty = "内容不能为空";
 
   static const city = '东城区';
+
+  static const String sentry_url =
+      'https://9f01395d34054da6af0db43d25239cb8@o497337.ingest.sentry.io/5573321';
 }
