@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_get_law/common/values/constants.dart';
 
 import 'common/dao/download_dao.dart';
@@ -29,6 +30,8 @@ class Global {
     // 工具初始
     await StorageUtil.init();
     HttpUtil();
+    await FlutterBugly.init(
+        androidAppId: Constants.bugly_android_key, iOSAppId: Constants.bugly_ios_key);
 
     // 初始化数据库
     await DBUtil().initDB();

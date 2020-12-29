@@ -188,6 +188,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.5.0"
+  flutter_bugly:
+    dependency: "direct main"
+    description:
+      name: flutter_bugly
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.0+2"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -406,13 +413,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.0"
-  package_info:
-    dependency: transitive
-    description:
-      name: package_info
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.4.3+2"
   path:
     dependency: transitive
     description:
@@ -532,20 +532,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.25.0"
-  sentry:
-    dependency: transitive
-    description:
-      name: sentry
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "4.0.1"
-  sentry_flutter:
-    dependency: "direct main"
-    description:
-      name: sentry_flutter
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "4.0.1"
   share:
     dependency: "direct main"
     description:

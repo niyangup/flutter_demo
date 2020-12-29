@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_get_law/common/values/values.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
+
 import 'common/values/colors.dart';
 import 'global.dart';
 import 'pages/index/index.dart';
@@ -14,24 +15,24 @@ import 'pages/index/index.dart';
 Future<void> main() async {
   runZonedGuarded(() async {
     await Global.init();
-    await SentryFlutter.init(
-      (options) {
-        options.dsn = Constants.sentry_url;
-      },
-      appRunner: () => runApp(MyApp()),
+    FlutterBugly.postCatchedException(
+      () => runApp(MyApp()),
+      debugUpload: true,
     );
-    // runApp(MyApp());
   }, (Object error, StackTrace stack) async {
     print(error);
     print(stack.toString());
     EasyLoading.dismiss();
-    await handleUploadError(error, stack);
+    if (!kDebugMode) {
+      await handleUploadError(error, stack);
+    }
   });
 }
 
-///上传Error
-Future<SentryId> handleUploadError(Object error, StackTrace stack) async =>
-    await Sentry.captureException(error, stackTrace: stack);
+///非[debug]环境异常上报
+Future handleUploadError(Object error, StackTrace stack) async {
+  await FlutterBugly.uploadException(message: error.toString(), detail: stack.toString());
+}
 
 class MyApp extends StatelessWidget {
   @override

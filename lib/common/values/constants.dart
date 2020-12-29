@@ -51,4 +51,7 @@ class Constants {
 
   static const String sentry_url =
       'https://9f01395d34054da6af0db43d25239cb8@o497337.ingest.sentry.io/5573321';
+
+  static const bugly_android_key = "1b5695c272";
+  static const bugly_ios_key = "b8c5daa405";
 }
