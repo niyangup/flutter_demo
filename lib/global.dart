@@ -49,7 +49,7 @@ class Global {
       SystemUiOverlayStyle systemUiOverlayStyle =
           SystemUiOverlayStyle(statusBarColor: Colors.transparent);
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-      FlutterBugly.checkUpgrade();
+       FlutterBugly.checkUpgrade(isSilence: true);
     }
   }
 }
