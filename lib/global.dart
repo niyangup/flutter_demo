@@ -31,7 +31,9 @@ class Global {
     await StorageUtil.init();
     HttpUtil();
     await FlutterBugly.init(
-        androidAppId: Constants.bugly_android_key, iOSAppId: Constants.bugly_ios_key);
+      androidAppId: Constants.bugly_android_key,
+      iOSAppId: Constants.bugly_ios_key,
+    );
 
     // 初始化数据库
     await DBUtil().initDB();
@@ -47,6 +49,7 @@ class Global {
       SystemUiOverlayStyle systemUiOverlayStyle =
           SystemUiOverlayStyle(statusBarColor: Colors.transparent);
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+      FlutterBugly.checkUpgrade();
     }
   }
 }

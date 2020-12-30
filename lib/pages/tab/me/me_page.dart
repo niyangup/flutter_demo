@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
+import 'package:flutter_get_law/common/utils/update.dart';
 import 'package:flutter_get_law/common/utils/utils.dart';
 import 'package:flutter_get_law/common/values/colors.dart';
 import 'package:flutter_get_law/common/values/constants.dart';
@@ -40,8 +42,7 @@ class _MePageState extends State<MePage> with AutomaticKeepAliveClientMixin {
     );
   }
 
-  Widget _buildListItem(String img, String title,
-      {@required GestureTapCallback onTap}) {
+  Widget _buildListItem(String img, String title, {@required GestureTapCallback onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

@@ -17,7 +17,7 @@ Future<void> main() async {
     await Global.init();
     FlutterBugly.postCatchedException(
       () => runApp(MyApp()),
-      debugUpload: true,
+      debugUpload: false,
     );
   }, (Object error, StackTrace stack) async {
     print(error);
@@ -60,7 +60,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: IndexPage(),
         builder: (context, child) {
-          return Scaffold(body: FlutterEasyLoading(child: child));
+          return Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: FlutterEasyLoading(child: child),
+          );
         },
       ),
     );
