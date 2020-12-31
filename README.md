@@ -1,6 +1,6 @@
 # flutter_get_law
 
-A new Flutter application.
+使用`Get`做的小Demo,可以点<a href="https://github.com/niyangup/flutter_demo/releases">这里</a>下载Apk
 
 ## Getting Started
 
