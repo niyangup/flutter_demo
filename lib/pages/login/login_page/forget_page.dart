@@ -6,6 +6,8 @@ import 'package:flutter_get_law/pages/login/login_controller/forge_controller.da
 import 'package:flutter_get_law/pages/login/login_widget/login_text_field.dart';
 import 'package:get/get.dart';
 
+import '../../../common/utils/utils.dart';
+
 class ForgetPwdPage extends StatelessWidget {
   ForgetPwdPage({Key key}) : super(key: key);
 
@@ -13,7 +15,6 @@ class ForgetPwdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(ForgetPwdController());
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: BackButton(color: HexColor("#333333")),
@@ -28,40 +29,43 @@ class ForgetPwdPage extends StatelessWidget {
         },
         child: Padding(
           padding: EdgeInsets.only(left: setWidth(74), right: setWidth(74)),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                _buildTitle(),
-                SizedBox(height: setRealHeight(130)),
-                LoginTextField(title: "手机号", controller: controller.phoneController),
-                SizedBox(height: setRealHeight(40)),
-                Obx(() => LoginTextField(
-                      isSms: true,
-                      title: "验证码",
-                      timerUtil: controller.timerUtil,
-                      controller: controller.smsController,
-                      phone: controller.phone.value,
+          child: ScrollConfiguration(
+            behavior: DisableWaterRippleBehavior(),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  _buildTitle(),
+                  SizedBox(height: setRealHeight(130)),
+                  LoginTextField(title: "手机号", controller: controller.phoneController),
+                  SizedBox(height: setRealHeight(40)),
+                  Obx(() => LoginTextField(
+                        isSms: true,
+                        title: "验证码",
+                        timerUtil: controller.timerUtil,
+                        controller: controller.smsController,
+                        phone: controller.phone.value,
+                        callback: () {
+                          controller.doGetSmsCode();
+                        },
+                      )),
+                  SizedBox(height: setRealHeight(40)),
+                  LoginTextField(title: "输入密码", controller: controller.pwdController),
+                  SizedBox(height: setRealHeight(40)),
+                  LoginTextField(title: "再次输入密码", controller: controller.confirmPwdController),
+                  SizedBox(height: setRealHeight(60)),
+                  Container(
+                    width: getScreenWidth(),
+                    child: loginButton(
+                      title: "重置密码",
                       callback: () {
-                        controller.doGetSmsCode();
+                        controller.doResetPwd();
                       },
-                    )),
-                SizedBox(height: setRealHeight(40)),
-                LoginTextField(title: "输入密码", controller: controller.pwdController),
-                SizedBox(height: setRealHeight(40)),
-                LoginTextField(title: "再次输入密码", controller: controller.confirmPwdController),
-                SizedBox(height: setRealHeight(60)),
-                Container(
-                  width: getScreenWidth(),
-                  child: loginButton(
-                    title: "重置密码",
-                    callback: () {
-                      controller.doResetPwd();
-                    },
+                    ),
                   ),
-                ),
-                SizedBox(height: setRealHeight(60)),
-              ],
+                  SizedBox(height: setRealHeight(60)),
+                ],
+              ),
             ),
           ),
         ),
