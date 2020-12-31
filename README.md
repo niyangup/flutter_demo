@@ -1,6 +1,6 @@
 # flutter_get_law
 
-使用`Get`做的小Demo,可以点<a href="https://github.com/niyangup/flutter_demo/releases">这里</a>下载Apk
+使用<a href="https://pub.flutter-io.cn/packages/get">`Get`</a>做的小Demo,可以点<a href="https://github.com/niyangup/flutter_demo/releases">这里</a>下载Apk
 
 ## Getting Started
 
