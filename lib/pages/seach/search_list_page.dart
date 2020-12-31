@@ -88,6 +88,7 @@ class _SearchListPageState extends State<SearchListPage> {
             return SmartRefresher(
               controller: controller.refreshController,
               header: MaterialClassicHeader(),
+              enablePullDown: false,
               child: ListView.builder(
                   itemCount: controller.lawListData.length,
                   itemBuilder: (BuildContext context, int index) {

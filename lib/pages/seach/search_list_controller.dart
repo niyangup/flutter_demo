@@ -50,6 +50,7 @@ class SearchListController extends GetxController {
 
   void _initLawList() {
     var homeLawResultModel = HomeLawResultModel.fromJson(json.decode(Constants.home_json));
+    homeLawResultModel.data.shuffle();
     lawListData.clear();
     lawListData.addAll(homeLawResultModel.data);
   }
