@@ -17,6 +17,7 @@ class LoginByPwdPage extends StatelessWidget {
     final loginByPwdController = Get.put(LoginByPwdController(phone: phone));
     var padding = setWidth(75);
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: GestureDetector(

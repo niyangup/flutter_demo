@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
         home: IndexPage(),
         builder: (context, child) {
           return Scaffold(
+            resizeToAvoidBottomPadding: false,
             resizeToAvoidBottomInset: false,
             body: FlutterEasyLoading(child: child),
           );
